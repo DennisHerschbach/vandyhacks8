@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<head>
+    <title>Prescriptions</title>
+    <meta charset="utf-8" />
+</head>
+<body class="is-preload">
+    <header id="header">
+        <h1>Prescriptions</h1>
+        <form method="post">
+            <input type="text" name="drug" value="{{ request.form['drug'] }}">
+            <input type="submit">
+        </form>
+    </header>
+    {% if drug %}
+      <h1>Hello {{ drug }}!</h1>
+    {% else %}
+      <h1>Hello, World!</h1>
+    {% endif %}
+</body>

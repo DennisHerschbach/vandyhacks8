@@ -14,14 +14,16 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+# @app.route('/rxRoute', methods=['GET', 'POST'])
+
+
 @app.route('/rxRoute', methods=['GET', 'POST'])
 def rxRoute():
     if request.method == 'POST':
         # do stuff when the form is submitted
         drug = request.form['drug']
         print(drug)
-        return "<p>" + drug + "<p>"
-
+        return render_template('rxFill.html', drug=drug)
     return render_template('rx.html')
 
 @app.route('/medRoute', methods=['GET', 'POST'])
