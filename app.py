@@ -26,7 +26,42 @@ def rxRoute():
 @app.route('/medRoute', methods=['GET', 'POST'])
 def medRoute():
     if request.method == 'POST':
-        return 
+        treatment = request.form['treatment']
+        print(treatment)
+        
+        import pandas as pandas
 
-    # show the form, it wasn't submitted
-    return render_template('med.html')
+        file = pandas.read_csv("ClinicData.csv", encoding = "ISO-8859-1")
+
+        treatmentArray = []
+        for n in range(len(file)):
+            treatmentArray.append(file.iloc[n, 0])
+
+        treatmentDF = file.loc[file['Illnesses'] == treatment]
+
+        index = treatmentDF.index.values[0]
+
+        priceList = []
+        
+        cvs = ""
+        kroger = ""
+        walmart = ""
+        costco = ""
+        walgreens = ""
+        for n in range(1, 6):
+            if (file.iloc[index, n] == file.iloc[index, n]):
+                priceList.append(file.iloc[index, n])
+                if n == 1:
+                    cvs = True
+                elif n == 2:
+                    kroger = True
+                elif n == 3:
+                    walmart = True
+                elif n == 4:
+                    costco = True
+                elif n == 5:
+                    walgreens = True
+                
+        
+        return render_template('medFill.html', treatment=treatment, priceList=priceList, cvs=cvs, kroger=kroger, walmart=walmart, costco=costco, walgreens=walgreens)
+    return render_template('medFIll.html')
