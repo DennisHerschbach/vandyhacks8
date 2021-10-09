@@ -1,0 +1,18 @@
+from bs4 import BeautifulSoup as bs
+import requests
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
+from time import sleep
+
+
+
+driver = webdriver.Chrome(ChromeDriverManager().install())
+
+
+driver.get("https://www.goodrx.com/zoloft")
+sleep(20)
+soup = bs(driver.page_source, 'html.parser')
+allprices = soup.find_all('div', attrs={"data-qa", "drug_price"})
+print(allprices)
+
+driver.quit()
