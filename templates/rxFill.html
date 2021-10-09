@@ -1,18 +1,38 @@
 <!DOCTYPE HTML>
-<head>
-    <title>Prescriptions</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-</head>
-<body class="is-preload">
-    <header id="header">
-        <h1>Prescriptions</h1>
-        <form method="post">
-            <input type="text" name="drug" value="{{ request.form['drug'] }}">
-            <input type="submit">
-        </form>
-    </header>
-    {% if drug %}
-      <p>Drug: {{ drug }}</p>
-    {% endif %}
-</body>
+<!--
+	Fractal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Prescriptions</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+	</head>
+	<body class="is-preload" id = "page2">
+        <table style="border: 0px">
+            <tr style="background-color: #4696e5">
+                <td colspan = 3>
+                <h1 style="font-size: 40px; color: white">Prescriptions</h1>
+                </td>
+            </tr>
+            <tr>
+                <td style="white-space: nowrap">
+                <h3>Enter drug name:</h3>
+                </td>
+                <td style="width: 100%">
+                    <form method="post">
+                        <input type="text" name="drug" value="{{ request.form['drug'] }}">
+                        <br>
+                        <input type="submit">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        {% if drug %}
+          <p>Drug: {{ drug }}</p>
+        {% endif %}
+    </body>
+</html>

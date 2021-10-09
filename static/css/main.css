@@ -1,6 +1,10 @@
 @import url(fontawesome-all.min.css);
 
 /*
+    modified section
+*/
+
+/*
 	Fractal by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
@@ -336,11 +340,11 @@ input, select, textarea {
 		background: rgba(144, 144, 144, 0.075);
 		border-color: #e6e6e6;
 	}
-
+/*
 	hr {
 		border-bottom-color: #e6e6e6;
 	}
-
+*/
 /* Row */
 
 	.row {
