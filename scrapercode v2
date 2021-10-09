@@ -1,0 +1,31 @@
+from bs4 import BeautifulSoup as bs
+import requests
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium import webdriver
+from time import sleep
+import pandas as pd
+import os
+
+
+def get_prices(drug_name):
+
+    options = webdriver.ChromeOptions()
+    options.add_experimental_option('excludeSwitches', ['enable-logging'])
+    driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+
+    drug_url = "https://www.goodrx.com/" + drug_name
+    driver.get(drug_url)
+    sleep(10)
+    soup = bs(driver.page_source, 'html.parser')
+
+    allprices = soup.find_all('div', attrs={"data-qa":"drug_price"})
+    storenames = soup.find_all('span', attrs={"class":"goldAddUnderline-3T_sh"})
+
+    dict  = {'Store name': 'prices'}
+    for i in range(0,len(allprices)):
+        dict[storenames[i].text] = allprices[i].text.replace('The  price after coupon is', '').replace('The retail price  is', '')
+
+    print(dict)
+
+
+    driver.quit()
