@@ -1,15 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Cool Name</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
-</head>
-<body>
-    <h1>Cool Name</h1>
-    <p>Healthcare for Nashville's uninsured.</p>
-    <a href="{{ url_for('rxRoute') }}">Prescriptions</a>
-    <br>
-    <a href="{{ url_for('medRoute') }}">Medical Services</a>
-</body>
+<!DOCTYPE HTML>
+<!--
+	Fractal by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Cool Name</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
+	</head>
+	<body class="is-preload">
+		<!-- Header -->
+			<header id="header">
+				<center><div class="content">
+					<h1><center>Cool Name</center></h1>
+					<p>Healthcare for Nashville's uninsured.</p>
+					<ul class="actions">
+						<li><a href="{{ url_for('rxRoute') }}" class="button icon solid fa-chevron-down scrolly">Prescriptions</a></li>
+						<li><a href="{{ url_for('medRoute') }}" class="button icon solid fa-chevron-down scrolly">Medical Services</a></li>
+					</ul>
+				</div></center>
+			</header>
+
+		<!-- Scripts -->
+        
+			<script src="{{ url_for('static', filename= 'js/jquery.min.js') }}"></script>
+			<script src="{{ url_for('static', filename= 'js/jquery.scrolly.min.js') }}"></script>
+			<script src="{{ url_for('static', filename= 'js/browser.min.js') }}"></script>
+			<script src="{{ url_for('static', filename= 'js/breakpoints.min.js') }}"></script>
+			<script src="{{ url_for('static', filename= 'js/util.js') }}"></script>
+			<script src="{{ url_for('static', filename= 'js/main.js') }}"></script>
+
+	</body>
 </html>
