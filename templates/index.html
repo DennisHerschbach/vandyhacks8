@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cool Name</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+</head>
+<body>
+    <h1>Cool Name</h1>
+    <p>Healthcare for Nashville's uninsured.</p>
+    <a href="{{ url_for('rxRoute') }}">Prescriptions</a>
+    <br>
+    <a href="{{ url_for('medRoute') }}">Medical Services</a>
+</body>
+</html>
