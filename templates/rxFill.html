@@ -14,7 +14,6 @@
       <meta charset="utf-8" />
       <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
       <link rel="stylesheet" href="{{ url_for('static', filename= 'css/main.css') }}">
-        <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhRM-5aEO6j2JCbhUzfAjpSpfODw8-OHI&libraries=places"></script>
    </head>
    <body class="is-preload" id = "page2">
       <table style="border: 0px">
@@ -132,10 +131,8 @@
         {% endif %}
       </table>
    </body>
+        <script async src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
     <script>
-        // This example requires the Places library. Include the libraries=places
-        // parameter when you first load the API. For example:
-        // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&libraries=places">
         let map;
         let service;
         let infowindow;
