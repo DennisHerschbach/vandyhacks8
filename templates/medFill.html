@@ -32,33 +32,43 @@
                     </form>
                 </td>
             </tr>
-        </table>
-        {% if treatment %}
-          <p>Treatment: {{ treatment }}</p>
-        {% endif %}
-        {% if placeList %}
-          <p>Prices: {{ priceList }}</p>
-        {% endif %}
-        
         {% if cvs %}
-          <p>CVS: {{ priceList[0] }}</p>
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/cvs.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ priceList[0] }}</h3></td>
+            </tr>
         {% endif %}
         
         {% if kroger %}
-          <p>Kroger: {{ priceList[1] }}</p>
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/kroger.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ priceList[1] }}</h3></td>
+            </tr>
         {% endif %}
         
         {% if walmart %}
-          <p>Walmart: {{ priceList[2] }}</p>
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/walmart.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ priceList[2] }}</h3></td>
+            </tr>
         {% endif %}
         
         {% if costco %}
-          <p>Costco: {{ priceList[3] }}</p>
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/costco.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ priceList[3] }}</h3></td>
+            </tr>
         {% endif %}
         
         {% if wallgreens %}
-          <p>Wallgreens: {{ priceList[4] }}</p>
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/wallgreens.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ priceList[4] }}</h3></td>
+            </tr>
         {% endif %}
+                
+        </table>
+                
     </body>
     
     <script>
