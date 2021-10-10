@@ -3,7 +3,7 @@
 """
 Created on Sat Oct  9 13:05:24 2021
 
-@author: aptitude
+@author: Michael Herschbach
 """
 
 from flask import Flask, render_template, request, flash, url_for, redirect
