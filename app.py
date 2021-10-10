@@ -39,7 +39,7 @@ def rxRoute():
             
         drug_url = "https://www.goodrx.com/" + drug
         driver.get(drug_url)
-        sleep(5)
+        sleep(0.5)
         
         soup = bs(driver.page_source, 'html.parser')
         
@@ -153,7 +153,7 @@ def rxRouteOne():
     
         
         driver.get(drug_url)
-        sleep(5)
+        sleep(0.5)
         soup = bs(driver.page_source, 'html.parser')
     
         allprices = soup.find_all('div', attrs={"data-qa":"drug_price"})
