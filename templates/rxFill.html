@@ -64,7 +64,62 @@
                 </form>
             </td>
          </tr>
-         {% endif %}
+         {% endif %}   
+          
+        {% if kroger %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/kroger.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[0] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if walgreens %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/wallgreens.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[1] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if cvs %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/cvs.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[2] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if publix %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/publix.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[3] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if walmart %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/walmart.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[4] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if costco %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/costco.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[5] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if foodcity %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/foodcity.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[6] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if target %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/target.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[7] }}</h3></td>
+            </tr>
+        {% endif %}
+        {% if walmartneighborhood %}
+            <tr>
+                <td><img src="{{ url_for('static', filename= 'images/walmartneighborhood.png') }}" height="75px"></td>
+                <td style = "vertical-align: top;"><h3 style="font-size: 30px">{{ result[8] }}</h3></td>
+            </tr>
+        {% endif %}
       </table>
    </body>
    <script>

@@ -156,26 +156,62 @@ def rxRouteOne():
         sleep(5)
         soup = bs(driver.page_source, 'html.parser')
     
-    
         allprices = soup.find_all('div', attrs={"data-qa":"drug_price"})
+    
+        
+    
+        
         storenames = soup.find_all('span', attrs={"class":"goldAddUnderline-3T_sh"})
+        
         if(len(allprices) == 0):
             return("We could not find the drug you were looking for.\n\nThis could be due to any one of the following reasons:\n1) The drug is not commercially available\n2) The drug is not approved by the FDA\n3) It is a limited distribution drug and not available at pharmacies\n4) You need a prescription for it and your healthcare provider must give you one")
         else:
             dict  = {'Store name': 'prices'}
             for i in range(0,len(allprices)):
                 dict[storenames[i].text] = allprices[i].text.replace('The  price after coupon is', '').replace('The retail price  is', '')
+                
+        for i in dict.keys():
+            dict[i] = dict[i][0:len(dict[i]) - 1]
     
-            return dict
-
-
+        companyList = ['Kroger Pharmacy', 'Walgreens', 'CVS Pharmacy', 'Publix', 'Walmart', 'Costco', 'Food City Pharmacy', 'Target (CVS)', 'Walmart Neighborhood Market']
+        ctr = 0
+        prices = []
+        for i in companyList:
+            if(i in dict):
+                prices.append(dict.get(i))
+            else:
+                prices.append(None)
+    
         driver.quit()
+        return prices
         
     result = scraper(choiceUrl)
     
     print(result)
     
-    return render_template('rxFill.html', result=result)
+    for n in range(1, 10):
+        if (result[n-1] == result[n-1]):
+            if n == 1:
+                kroger = True
+            elif n == 2:
+                walgreens = True
+            elif n == 3:
+                cvs = True
+            elif n == 4:
+                publix = True
+            elif n == 5:
+                walmart = True
+            elif n == 6:
+                costco = True
+            elif n == 7:
+                foodcity = True
+            elif n == 8:
+                target = True
+            elif n == 9:
+                walmartneighborhood = True
+            
+    
+    return render_template('rxFill.html', result=result, kroger=kroger, walgreens=walgreens, cvs=cvs, publix=publix, walmart=walmart, costco=costco, foodcity=foodcity, target=target, walmartneighborhood=walmartneighborhood)
 
 @app.route('/medRoute', methods=['GET', 'POST'])
 def medRoute():
